@@ -126,13 +126,13 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
       </button>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center space-x-1.5 mt-4">
+      <div className="flex justify-center space-x-1 mt-4">
         {services.map((_, index) => (
           <button
             key={index}
             onClick={() => scrollToIndex(index)}
-            className={`h-1.5 rounded-full transition-all touch-target ${
-              index === currentIndex ? 'bg-primary w-4' : 'bg-gray-300 w-1.5'
+            className={`h-1 rounded-full transition-all touch-target ${
+              index === currentIndex ? 'bg-primary w-3' : 'bg-gray-300 w-1'
             }`}
             aria-label={`Mergi la serviciul ${index + 1}`}
           />

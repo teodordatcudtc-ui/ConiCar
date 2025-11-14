@@ -24,7 +24,7 @@ const TopBar = () => {
               </svg>
               <span>0722178964</span>
             </a>
-            <div className="flex items-center space-x-2">
+            <div className="hidden md:flex items-center space-x-2">
               <svg
                 width="14"
                 height="14"
@@ -40,7 +40,7 @@ const TopBar = () => {
               <span className="text-xs md:text-sm">Strada Ion Luca Caragiale 8, Dudu 077041</span>
             </div>
           </div>
-          <div className="text-xs md:text-sm font-medium opacity-95">
+          <div className="hidden md:block text-xs md:text-sm font-medium opacity-95">
             L-V: 08:00-18:00 | S: 09:00-14:00
           </div>
         </div>
