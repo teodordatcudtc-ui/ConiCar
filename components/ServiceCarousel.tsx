@@ -61,28 +61,20 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
       setCurrentIndex(newIndex);
     };
 
-    // Use scrollend event if available for more accurate index tracking
-    const hasScrollEnd = 'onscrollend' in carousel;
+    // Use scroll with debounce for index tracking
+    // CSS scroll-snap handles the snapping behavior
+    let scrollTimeout: NodeJS.Timeout;
+    const handleScrollDebounced = () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(handleScroll, 100);
+    };
     
-    if (hasScrollEnd) {
-      carousel.addEventListener('scrollend', handleScroll, { passive: true });
-      return () => {
-        carousel.removeEventListener('scrollend', handleScroll);
-      };
-    } else {
-      // Fallback: use scroll with debounce
-      let scrollTimeout: NodeJS.Timeout;
-      const handleScrollDebounced = () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(handleScroll, 100);
-      };
-      carousel.addEventListener('scroll', handleScrollDebounced, { passive: true });
-      
-      return () => {
-        carousel.removeEventListener('scroll', handleScrollDebounced);
-        clearTimeout(scrollTimeout);
-      };
-    }
+    carousel.addEventListener('scroll', handleScrollDebounced, { passive: true });
+    
+    return () => {
+      carousel.removeEventListener('scroll', handleScrollDebounced);
+      clearTimeout(scrollTimeout);
+    };
   }, []);
 
   return (
