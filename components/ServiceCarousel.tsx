@@ -62,8 +62,13 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
     };
 
     // Use scrollend event if available for more accurate index tracking
-    if ('onscrollend' in carousel) {
+    const hasScrollEnd = 'onscrollend' in carousel;
+    
+    if (hasScrollEnd) {
       carousel.addEventListener('scrollend', handleScroll, { passive: true });
+      return () => {
+        carousel.removeEventListener('scrollend', handleScroll);
+      };
     } else {
       // Fallback: use scroll with debounce
       let scrollTimeout: NodeJS.Timeout;
@@ -78,12 +83,6 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
         clearTimeout(scrollTimeout);
       };
     }
-    
-    return () => {
-      if ('onscrollend' in carousel) {
-        carousel.removeEventListener('scrollend', handleScroll);
-      }
-    };
   }, []);
 
   return (
