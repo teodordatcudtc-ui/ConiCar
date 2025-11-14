@@ -2,13 +2,13 @@
 
 const TopBar = () => {
   return (
-    <div className="bg-primary-dark text-white text-xs md:text-sm py-1.5 md:py-2">
+    <div className="bg-primary-dark text-white text-xs md:text-sm py-1 md:py-2">
       <div className="container-custom px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-0">
-          <div className="flex flex-col md:flex-row md:items-center md:space-x-6 gap-2 md:gap-0">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0">
+          <div className="flex justify-center md:justify-start flex-col md:flex-row md:items-center md:space-x-6 gap-1 md:gap-0">
             <a
               href="tel:0722178964"
-              className="flex items-center space-x-2 hover:text-accent transition-colors touch-target"
+              className="flex items-center justify-center space-x-2 hover:text-accent transition-colors touch-target"
               aria-label="Sună la 0722178964"
             >
               <svg

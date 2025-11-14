@@ -167,13 +167,13 @@ const Hero = () => {
           </h1>
           
           <p className="text-sm md:text-base mb-6 max-w-xl mx-auto opacity-90 animate-fade-up" style={{ animationDelay: '300ms' }}>
-            Calitate, rapiditate, prețuri corecte. Experiență de peste 10 ani în service auto.
+            Calitate, rapiditate, prețuri corecte. Experiență de peste 5 ani în service auto.
           </p>
 
           {/* Stats badges - mai compacte */}
           <div className="flex flex-wrap justify-center gap-3 mb-6 animate-fade-up" style={{ animationDelay: '400ms' }}>
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-1.5">
-              <div className="text-xl font-bold text-accent">10+</div>
+              <div className="text-xl font-bold text-accent">5+</div>
               <div className="text-xs opacity-90">Ani experiență</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-1.5">
@@ -181,8 +181,8 @@ const Hero = () => {
               <div className="text-xs opacity-90">Clienți mulțumiți</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-1.5">
-              <div className="text-xl font-bold text-accent">9</div>
-              <div className="text-xs opacity-90">Servicii complete</div>
+              <div className="text-xl font-bold text-accent">24/7</div>
+              <div className="text-xs opacity-90">Disponibilitate</div>
             </div>
           </div>
 
