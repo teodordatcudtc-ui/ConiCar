@@ -160,7 +160,7 @@ export default function Preturi() {
 
       <Header />
       <main className="pt-8">
-        <section className="section-padding bg-gradient-to-br from-primary to-primary-dark text-white">
+        <section className="section-padding pt-32 md:pt-24 bg-gradient-to-br from-primary to-primary-dark text-white">
           <div className="container-custom text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Prețuri</h1>
             <p className="text-xl max-w-2xl mx-auto opacity-90">

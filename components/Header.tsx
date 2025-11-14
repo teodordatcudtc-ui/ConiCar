@@ -8,14 +8,23 @@ import TopBar from './TopBar';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize(); // Check on mount
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const navLinks = [
@@ -35,7 +44,7 @@ const Header = () => {
             ? 'bg-white/95 backdrop-blur-md shadow-lg top-0'
             : 'bg-white/90 backdrop-blur-sm'
         }`}
-        style={{ top: isScrolled ? '0' : '32px' }}
+        style={{ top: isScrolled ? '0' : isMobile ? 'calc(60px + env(safe-area-inset-top))' : '32px' }}
       >
       <nav className="container-custom section-padding py-4">
         <div className="flex items-center justify-between">

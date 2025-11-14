@@ -18,34 +18,19 @@ interface ServiceCarouselProps {
 
 const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0));
-    setScrollLeft(carouselRef.current?.scrollLeft || 0);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || !carouselRef.current) return;
-    e.preventDefault();
-    const x = e.touches[0].pageX - (carouselRef.current.offsetLeft || 0);
-    const walk = (x - startX) * 2;
-    carouselRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-  };
 
   const scrollToIndex = (index: number) => {
     if (!carouselRef.current) return;
-    const cardWidth = carouselRef.current.offsetWidth;
+    const firstCard = carouselRef.current.querySelector('[data-carousel-item]') as HTMLElement;
+    if (!firstCard) return;
+    
+    const cardWidth = firstCard.offsetWidth;
+    const gap = 16; // 1rem = 16px (gap-4)
+    const scrollLeft = index * (cardWidth + gap);
+    
     carouselRef.current.scrollTo({
-      left: index * cardWidth,
+      left: scrollLeft,
       behavior: 'smooth',
     });
     setCurrentIndex(index);
@@ -66,13 +51,39 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
     if (!carousel) return;
 
     const handleScroll = () => {
-      const cardWidth = carousel.offsetWidth;
-      const newIndex = Math.round(carousel.scrollLeft / cardWidth);
+      const firstCard = carousel.querySelector('[data-carousel-item]') as HTMLElement;
+      if (!firstCard) return;
+      
+      const cardWidth = firstCard.offsetWidth;
+      const gap = 16; // 1rem = 16px (gap-4)
+      const scrollLeft = carousel.scrollLeft;
+      const newIndex = Math.round(scrollLeft / (cardWidth + gap));
       setCurrentIndex(newIndex);
     };
 
-    carousel.addEventListener('scroll', handleScroll);
-    return () => carousel.removeEventListener('scroll', handleScroll);
+    // Use scrollend event if available for more accurate index tracking
+    if ('onscrollend' in carousel) {
+      carousel.addEventListener('scrollend', handleScroll, { passive: true });
+    } else {
+      // Fallback: use scroll with debounce
+      let scrollTimeout: NodeJS.Timeout;
+      const handleScrollDebounced = () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(handleScroll, 100);
+      };
+      carousel.addEventListener('scroll', handleScrollDebounced, { passive: true });
+      
+      return () => {
+        carousel.removeEventListener('scroll', handleScrollDebounced);
+        clearTimeout(scrollTimeout);
+      };
+    }
+    
+    return () => {
+      if ('onscrollend' in carousel) {
+        carousel.removeEventListener('scrollend', handleScroll);
+      }
+    };
   }, []);
 
   return (
@@ -80,15 +91,23 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
       <div
         ref={carouselRef}
         className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-4"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        style={{ 
+          scrollbarWidth: 'none', 
+          msOverflowStyle: 'none',
+          scrollSnapType: 'x mandatory',
+          WebkitOverflowScrolling: 'touch',
+          overscrollBehaviorX: 'contain',
+        }}
       >
         {services.map((service, index) => (
           <div
             key={service.id}
-            className="flex-shrink-0 w-[85vw] snap-center"
+            data-carousel-item
+            className="flex-shrink-0 w-[85vw] snap-center snap-always"
+            style={{
+              scrollSnapAlign: 'center',
+              scrollSnapStop: 'always',
+            }}
           >
             <ServiceCard {...service} delay={0} />
           </div>
@@ -116,13 +135,13 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
       </button>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center space-x-2 mt-4">
+      <div className="flex justify-center space-x-1.5 mt-4">
         {services.map((_, index) => (
           <button
             key={index}
             onClick={() => scrollToIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all touch-target ${
-              index === currentIndex ? 'bg-primary w-6' : 'bg-gray-300'
+            className={`h-1.5 rounded-full transition-all touch-target ${
+              index === currentIndex ? 'bg-primary w-4' : 'bg-gray-300 w-1.5'
             }`}
             aria-label={`Mergi la serviciul ${index + 1}`}
           />
