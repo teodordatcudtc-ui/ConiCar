@@ -204,23 +204,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator - mai vizibil */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <div className="flex flex-col items-center space-y-1">
-          <span className="text-xs opacity-70 uppercase tracking-wider">Scroll</span>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="text-white/80"
-          >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </div>
-      </div>
     </section>
   );
 };
