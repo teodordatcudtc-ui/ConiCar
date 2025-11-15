@@ -48,7 +48,8 @@ const Hero = () => {
           fill
           className="object-cover opacity-30"
           priority
-          quality={85}
+          quality={75}
+          sizes="100vw"
         />
         {/* Dark overlay pentru întunecare */}
         <div className="absolute inset-0 bg-black/50" />

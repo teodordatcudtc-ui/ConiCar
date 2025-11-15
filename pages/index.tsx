@@ -252,7 +252,28 @@ export default function Home() {
         <meta name="keywords" content="service auto Dudu, vulcanizare Dudu, diagnoză auto Dudu, kit ambreiaj, distribuție auto, tren rulare, sistem frânare, reparații motoare, schimb ulei Dudu, îndreptare jante, echilibrare, geometrie 3D" />
         <meta name="author" content="ConiCar Service Auto" />
         <link rel="canonical" href="https://conicar.ro/" />
+        <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        {/* Google Analytics */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                `,
+              }}
+            />
+          </>
+        )}
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -359,10 +380,12 @@ export default function Home() {
               <div className="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/servicii/echilibrare.jpg"
-                  alt="Echipament echilibrare și geometrie 3D"
+                  alt="Echipament echilibrare și geometrie 3D pentru reglare precisă roți"
                   fill
                   className="object-cover"
-                  priority
+                  loading="lazy"
+                  quality={80}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </div>

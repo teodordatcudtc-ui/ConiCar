@@ -48,10 +48,13 @@ const ServiceCard = ({ id, icon, title, description, benefits, delay = 0 }: Serv
           <>
             <Image
               src={imagePath}
-              alt={title}
+              alt={`${title} - serviciu profesional la ConiCar Service Auto & Vulcanizare Dudu`}
               fill
               className="object-cover"
               onError={() => setImageError(true)}
+              loading="lazy"
+              quality={80}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             {/* Dark overlay */}
             <div className="absolute inset-0 bg-black/55" />
