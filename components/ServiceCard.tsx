@@ -100,7 +100,15 @@ const ServiceCard = ({ id, icon, title, description, benefits, delay = 0 }: Serv
             href={`/servicii/${id}`}
             className="inline-block w-full text-center btn-secondary text-sm py-3"
           >
-            Află mai mult
+            {id === 'diagnoza' ? 'Detalii diagnostic' : 
+             id === 'kit-ambreiaj' ? 'Informații ambreiaj' :
+             id === 'kit-distributie' ? 'Află despre distribuție' :
+             id === 'tren-rulare' ? 'Detalii tren rulare' :
+             id === 'sistem-franare' ? 'Informații frânare' :
+             id === 'reparatii-motoare' ? 'Detalii reparații' :
+             id === 'schimb-ulei-filtre' ? 'Află despre service' :
+             id === 'vulcanizare' ? 'Servicii vulcanizare' :
+             'Află mai mult'}
           </Link>
         </div>
       </div>
