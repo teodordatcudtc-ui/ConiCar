@@ -28,6 +28,7 @@ const TopBar = () => {
 
   return (
     <div 
+      data-topbar
       className={`fixed top-0 left-0 right-0 z-[60] bg-primary-dark text-white text-xs md:text-sm py-1.5 transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}

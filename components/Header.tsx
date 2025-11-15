@@ -12,6 +12,7 @@ const Header = () => {
   const pathname = usePathname();
 
   const [topBarVisible, setTopBarVisible] = useState(true);
+  const [topBarHeight, setTopBarHeight] = useState(28);
 
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -35,18 +36,32 @@ const Header = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
+
+    // Măsurăm înălțimea reală a TopBar-ului
+    const measureTopBar = () => {
+      const topBarElement = document.querySelector('[data-topbar]');
+      if (topBarElement) {
+        const height = topBarElement.getBoundingClientRect().height;
+        setTopBarHeight(height);
+      }
+    };
     
     handleResize(); // Check on mount
+    measureTopBar(); // Measure TopBar height
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('resize', () => {
+      handleResize();
+      measureTopBar();
+    }, { passive: true });
+    
+    // Re-măsurăm după un mic delay pentru a se asigura că TopBar este renderat
+    setTimeout(measureTopBar, 100);
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
   }, [lastScrollY]);
-
-  // Calculăm înălțimea TopBar-ului (mai precis: py-1.5 pe toate = ~28px desktop, ~60px mobile cu conținut)
-  const topBarHeight = isMobile ? 60 : 28;
 
   const navLinks = [
     { href: '/', label: 'Acasă' },
