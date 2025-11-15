@@ -244,10 +244,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>ConiCar Service Auto & Vulcanizare Dudu | Reparații Auto Profesionale</title>
+        <title>ConiCar Service Auto & Vulcanizare Dudu</title>
         <meta
           name="description"
-          content="Service auto profesional în Dudu cu peste 5 ani experiență. Oferim diagnoză electronică, reparații motoare, vulcanizare, geometrie 3D și echilibrare. Programează acum!"
+          content="Service auto profesional în Dudu. Diagnoză electronică, reparații motoare, vulcanizare, geometrie 3D. Peste 5 ani experiență. Programează acum!"
         />
         <meta name="keywords" content="service auto Dudu, vulcanizare Dudu, diagnoză auto Dudu, kit ambreiaj, distribuție auto, tren rulare, sistem frânare, reparații motoare, schimb ulei Dudu, îndreptare jante, echilibrare, geometrie 3D" />
         <meta name="author" content="ConiCar Service Auto" />
@@ -286,10 +286,10 @@ export default function Home() {
         <section id="servicii" className="section-padding bg-white">
           <div className="container-custom">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">
-              Servicii Auto Complete în Dudu
+              Serviciile Noastre
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto text-lg leading-relaxed">
-              ConiCar Service Auto & Vulcanizare oferă o gamă completă de servicii auto profesionale pentru toate nevoile tale, de la diagnostic electronic și reparații motoare complexe până la servicii specializate de vulcanizare, geometrie 3D și echilibrare. Echipa noastră de mecanicieni experimentați folosește echipamente moderne și piese de calitate pentru a asigura funcționarea optimă a vehiculului tău.
+            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+              Oferim o gamă completă de servicii auto profesionale pentru toate nevoile tale
             </p>
             {/* Desktop Grid */}
             <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8">
@@ -308,7 +308,7 @@ export default function Home() {
                 href="/servicii"
                 className="btn-primary text-lg px-8 py-4 inline-block"
               >
-                Descoperă toate serviciile noastre
+                Vezi lista completă de servicii
               </Link>
             </div>
           </div>
@@ -323,9 +323,9 @@ export default function Home() {
           <div className="container-custom">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-6">
-                  Echipamente Moderne de Diagnostic și Geometrie 3D
-                </h3>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                  Diagnostic și Geometrie 3D
+                </h2>
                 <p className="text-lg mb-4 opacity-90 leading-relaxed">
                   ConiCar Service Auto & Vulcanizare folosește echipamente de ultimă generație pentru diagnostic precis și rapid al tuturor sistemelor vehiculului. Tehnologia noastră de geometrie 3D asigură reglarea perfectă a roților, optimizând uzura anvelopelor și îmbunătățind stabilitatea la condus. Echipamentele noastre moderne permit identificarea rapidă a problemelor și oferirea de soluții eficiente pentru toate tipurile de vehicule.
                 </p>
@@ -373,10 +373,10 @@ export default function Home() {
         <section className="section-padding bg-white">
           <div className="container-custom">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">
-              Atelierul și Echipamentul Nostru
+              Galeria Noastră
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto text-lg leading-relaxed">
-              Descoperă atelierul nostru modern din Dudu, echipat cu tehnologie de ultimă generație pentru diagnostic auto, reparații motoare și servicii de vulcanizare. Echipa noastră de mecanicieni experimentați lucrează cu pasiune pentru a oferi servicii de cea mai înaltă calitate.
+            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+              Vizualizează atelierul nostru și echipamentele moderne
             </p>
             <Gallery images={galleryImages} />
           </div>

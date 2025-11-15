@@ -78,11 +78,11 @@ const WorkProcess = () => {
   return (
     <section className="section-padding bg-white">
       <div className="container-custom">
-        <h3 className="text-2xl md:text-3xl font-bold text-center mb-4 text-primary">
-          Cum Lucrăm: Procesul Complet de la Recepție la Predare
-        </h3>
-        <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto text-lg leading-relaxed">
-          La ConiCar Service Auto & Vulcanizare, procesul nostru de lucru este structurat în cinci etape clare, fiecare pas fiind planificat cu atenție pentru a-ți oferi cea mai bună experiență posibilă. De la momentul în care ne predai vehiculul până la predarea finală, asigurăm transparență, comunicare constantă și rezultate de calitate superioară.
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 text-primary">
+          Procesul Nostru de Lucru
+        </h2>
+        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          De la recepție la predare, fiecare pas este planificat pentru a-ți oferi cea mai bună experiență
         </p>
 
         {/* Desktop Timeline */}
@@ -106,7 +106,7 @@ const WorkProcess = () => {
                       : 'hover:shadow-xl'
                   }`}
                 >
-                  <h3 className="font-bold text-lg text-primary mb-2">{step.title}</h3>
+                  <div className="font-bold text-lg text-primary mb-2">{step.title}</div>
                   <p className="text-sm text-gray-600 mb-3 flex-grow">{step.description}</p>
                   {expandedStep === index && (
                     <div className="mt-4 pt-4 border-t border-gray-200">

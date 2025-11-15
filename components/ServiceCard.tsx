@@ -60,7 +60,7 @@ const ServiceCard = ({ id, icon, title, description, benefits, delay = 0 }: Serv
               <div className="flex items-center justify-center w-16 h-16 mb-4 bg-white/20 backdrop-blur-sm rounded-xl text-white">
                 {icon}
               </div>
-              <h3 className="text-2xl font-bold text-center">{title}</h3>
+              <div className="text-2xl font-bold text-center">{title}</div>
             </div>
           </>
         ) : (
@@ -69,7 +69,7 @@ const ServiceCard = ({ id, icon, title, description, benefits, delay = 0 }: Serv
             <div className="flex items-center justify-center w-16 h-16 mb-4 bg-white/20 backdrop-blur-sm rounded-xl text-white">
               {icon}
             </div>
-            <h3 className="text-2xl font-bold text-center text-white">{title}</h3>
+            <div className="text-2xl font-bold text-center text-white">{title}</div>
           </div>
         )}
       </div>

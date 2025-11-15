@@ -181,8 +181,8 @@ const Hero = () => {
             <span className="block text-accent mt-1 drop-shadow-lg">& Vulcanizare Dudu</span>
           </h1>
           
-          <p className="text-base md:text-lg mb-6 max-w-2xl mx-auto opacity-90 animate-fade-up leading-relaxed" style={{ animationDelay: '300ms' }}>
-            ConiCar Service Auto & Vulcanizare este un service auto profesional situat în Dudu, oferind servicii complete de reparații auto și vulcanizare cu peste 5 ani de experiență. Oferim diagnoză electronică modernă, reparații motoare complexe, servicii de vulcanizare incluzând geometrie 3D și echilibrare, toate la prețuri corecte și cu garanție pentru toate lucrările efectuate.
+          <p className="text-sm md:text-base mb-6 max-w-xl mx-auto opacity-90 animate-fade-up" style={{ animationDelay: '300ms' }}>
+            Calitate, rapiditate, prețuri corecte. Experiență de peste 5 ani în service auto și vulcanizare.
           </p>
 
           {/* Stats badges - mai compacte */}
