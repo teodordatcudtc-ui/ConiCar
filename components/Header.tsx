@@ -56,6 +56,26 @@ const Header = () => {
     { href: '/contact', label: 'Contact' },
   ];
 
+  // Calculăm top-ul pentru header
+  const getHeaderTop = () => {
+    if (topBarVisible) {
+      // Când TopBar este vizibil, header-ul trebuie să fie exact sub el
+      if (isMobile) {
+        // Pe mobile, folosim doar înălțimea TopBar-ului, fără safe-area când ești la top
+        return `${topBarHeight}px`;
+      } else {
+        return `${topBarHeight}px`;
+      }
+    } else {
+      // Când TopBar este ascuns
+      if (isMobile) {
+        return '0';
+      } else {
+        return '0';
+      }
+    }
+  };
+
   return (
     <>
       <TopBar />
@@ -66,9 +86,7 @@ const Header = () => {
             : 'bg-white/90 backdrop-blur-sm'
         }`}
         style={{ 
-          top: topBarVisible 
-            ? (isMobile ? `calc(${topBarHeight}px + env(safe-area-inset-top))` : `${topBarHeight}px`)
-            : (isMobile ? 'env(safe-area-inset-top)' : '0')
+          top: getHeaderTop()
         }}
       >
       <nav className="container-custom section-padding py-4">

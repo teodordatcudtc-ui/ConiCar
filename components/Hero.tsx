@@ -38,7 +38,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-[#0f2a5a]"
+      className="relative pt-32 pb-12 md:pt-28 md:pb-16 overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-[#0f2a5a]"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
