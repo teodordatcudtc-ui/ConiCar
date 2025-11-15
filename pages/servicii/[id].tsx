@@ -664,7 +664,7 @@ export default function ServiceDetail() {
           content={`${service.description}. ${service.fullDescription}`}
         />
         <meta name="keywords" content={`${service.title}, service auto Dudu, ConiCar`} />
-        <link rel="canonical" href={`https://conicar.ro/servicii/${id}`} />
+        <link rel="canonical" href={`https://conicar.ro/servicii/${id}/`} />
       </Head>
 
       <Header />

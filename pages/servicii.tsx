@@ -166,7 +166,7 @@ export default function Servicii() {
           content="Servicii complete auto: diagnoză, schimbare kit ambreiaj, înlocuire distribuție, tren de rulare, sistem de frânare, reparații motoare, schimb ulei/filtre, vulcanizare. ConiCar Service Auto & Vulcanizare, Dudu."
         />
         <meta name="keywords" content="servicii auto Dudu, vulcanizare Dudu, diagnoză auto, kit ambreiaj, distribuție, tren rulare, sistem frânare, reparații motoare, schimb ulei, îndreptare jante, echilibrare, geometrie 3D" />
-        <link rel="canonical" href="https://conicar.ro/servicii" />
+        <link rel="canonical" href="https://conicar.ro/servicii/" />
         <meta property="og:title" content="Servicii — ConiCar Service Auto & Vulcanizare" />
         <meta property="og:description" content="Servicii complete auto: mecanică, vulcanizare (îndreptare jante, echilibrare, dejantat, geometrie 3D), diagnoză" />
         <meta property="og:url" content="https://conicar.ro/servicii" />

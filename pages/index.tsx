@@ -252,6 +252,7 @@ export default function Home() {
         <meta name="keywords" content="service auto Dudu, vulcanizare Dudu, diagnoză auto Dudu, kit ambreiaj, distribuție auto, tren rulare, sistem frânare, reparații motoare, schimb ulei Dudu, îndreptare jante, echilibrare, geometrie 3D" />
         <meta name="author" content="ConiCar Service Auto" />
         <link rel="canonical" href="https://conicar.ro/" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 

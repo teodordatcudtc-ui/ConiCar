@@ -1,0 +1,21 @@
+{
+  "redirects": [
+    {
+      "source": "/servicii",
+      "destination": "/servicii/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        }
+      ]
+    }
+  ]
+}
+

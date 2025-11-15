@@ -1,0 +1,6 @@
+# Redirect www to non-www (for Netlify)
+www.conicar.ro/*    https://conicar.ro/:splat    301!
+
+# Redirect non-www to www (alternative - uncomment if you prefer www)
+# conicar.ro/*       https://www.conicar.ro/:splat    301!
+

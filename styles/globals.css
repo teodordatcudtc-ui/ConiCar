@@ -7,14 +7,23 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   
   body {
     @apply bg-white text-gray-900 font-sans antialiased;
+    overflow-x: hidden;
   }
   
   * {
     @apply box-border;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
