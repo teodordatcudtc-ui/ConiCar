@@ -1,14 +1,43 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 const TopBar = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Ascunde la scroll down, arată la scroll up sau când ești la top
+      if (currentScrollY < 10) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <div className="bg-primary-dark text-white text-xs md:text-sm py-0.5 md:py-2">
+    <div 
+      className={`fixed top-0 left-0 right-0 z-[60] bg-primary-dark text-white text-xs md:text-sm py-1.5 transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0">
           <div className="flex justify-center md:justify-start flex-col md:flex-row md:items-center md:space-x-6 gap-1 md:gap-0">
             <a
               href="tel:0722178964"
-              className="flex items-center justify-center space-x-2 hover:text-accent transition-colors touch-target"
+              className="flex items-center justify-center space-x-2 hover:text-accent transition-colors"
               aria-label="Sună la 0722178964"
             >
               <svg
@@ -24,7 +53,7 @@ const TopBar = () => {
               </svg>
               <span>0722178964</span>
             </a>
-            <div className="hidden md:flex items-center space-x-2">
+            <div className="hidden md:flex items-center space-x-1.5">
               <svg
                 width="14"
                 height="14"

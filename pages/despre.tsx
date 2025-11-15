@@ -9,21 +9,21 @@ export default function Despre() {
   return (
     <>
       <Head>
-        <title>Despre Noi — ConiCar Service Auto | Echipa și Experiența Noastră</title>
+        <title>Despre Noi — ConiCar Service Auto & Vulcanizare | Echipa și Experiența Noastră</title>
         <meta
           name="description"
-          content="ConiCar Service Auto - service auto profesional în Dudu. Echipa noastră de mecanicieni experimentați oferă servicii de calitate de peste 10 ani."
+          content="ConiCar Service Auto & Vulcanizare - service auto profesional în Dudu. Echipa noastră de mecanicieni experimentați oferă servicii de calitate de peste 5 ani: mecanică și vulcanizare."
         />
-        <meta name="keywords" content="despre ConiCar, service auto Dudu, mecanicieni experimentați, istoric service auto" />
+        <meta name="keywords" content="despre ConiCar, service auto Dudu, vulcanizare Dudu, mecanicieni experimentați, istoric service auto" />
         <link rel="canonical" href="https://conicar.ro/despre" />
-        <meta property="og:title" content="Despre Noi — ConiCar Service Auto" />
-        <meta property="og:description" content="Echipa și experiența ConiCar Service Auto" />
+        <meta property="og:title" content="Despre Noi — ConiCar Service Auto & Vulcanizare" />
+        <meta property="og:description" content="Echipa și experiența ConiCar Service Auto & Vulcanizare" />
         <meta property="og:url" content="https://conicar.ro/despre" />
       </Head>
 
       <Header />
       <main className="pt-8">
-        <section className="section-padding pt-32 md:pt-24 bg-gradient-to-br from-primary to-primary-dark text-white">
+        <section className="section-padding pt-32 md:pt-40 bg-gradient-to-br from-primary to-primary-dark text-white">
           <div className="container-custom text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Despre Noi</h1>
             <p className="text-xl max-w-2xl mx-auto opacity-90">
@@ -36,12 +36,13 @@ export default function Despre() {
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
               <div className="prose prose-lg max-w-none">
-                <h2 className="text-3xl font-bold text-primary mb-6">ConiCar Service Auto</h2>
+                <h2 className="text-3xl font-bold text-primary mb-6">ConiCar Service Auto & Vulcanizare</h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  ConiCar Service Auto este un service auto profesional situat în Dudu,
+                  ConiCar Service Auto & Vulcanizare este un service auto profesional situat în Dudu,
                   dedicat oferirii de servicii de calitate superioară pentru toate tipurile de vehicule.
-                  Cu o experiență de peste 10 ani în domeniu, echipa noastră de mecanicieni
+                  Cu o experiență de peste 5 ani în domeniu, echipa noastră de mecanicieni
                   experimentați se angajează să ofere soluții rapide, eficiente și la prețuri corecte.
+                  Oferim atât servicii de mecanică, cât și servicii complete de vulcanizare.
                 </p>
 
                 <h3 className="text-2xl font-bold text-primary mb-4 mt-8">Misiunea noastră</h3>
@@ -69,7 +70,7 @@ export default function Despre() {
                     <div>
                       <strong className="text-primary">Experiență</strong>
                       <p className="text-gray-700">
-                        Peste 10 ani de experiență în service auto și mii de clienți mulțumiți
+                        Peste 5 ani de experiență în service auto și mii de clienți mulțumiți
                       </p>
                     </div>
                   </li>

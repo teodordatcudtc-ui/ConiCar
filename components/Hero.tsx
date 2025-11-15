@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Hero = () => {
   const [pathDrawn, setPathDrawn] = useState(false);
@@ -39,6 +40,20 @@ const Hero = () => {
       ref={heroRef}
       className="relative pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-[#0f2a5a]"
     >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero/hero-background.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-30"
+          priority
+          quality={85}
+        />
+        {/* Dark overlay pentru întunecare */}
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 z-0 opacity-10">
         <div 

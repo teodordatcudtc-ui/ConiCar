@@ -111,34 +111,18 @@ export default function Preturi() {
       ],
     },
     {
-      category: 'Revizii',
+      category: 'Vulcanizare',
       icon: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="9 11 12 14 22 4" />
-          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="6" />
         </svg>
       ),
       services: [
-        { name: 'Revizie completă', price: '300-600 RON', note: 'Verificare sistematică și schimb piese uzate' },
-        { name: 'Revizie parțială', price: '150-300 RON', note: 'Verificare selectivă' },
-      ],
-    },
-    {
-      category: 'Polish Faruri',
-      icon: (
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-        </svg>
-      ),
-      services: [
-        { name: 'Polish faruri (per far)', price: '100-150 RON', note: 'Restaurare și protecție UV' },
-        { name: 'Polish faruri (set 2)', price: '180-250 RON', note: 'Pachet pentru ambele faruri' },
+        { name: 'Îndreptare roluri jante', price: '100-300 RON', note: 'Preț per jantă, în funcție de complexitate' },
+        { name: 'Echilibrare', price: '30-50 RON', note: 'Preț per roată' },
+        { name: 'Dejantat', price: '20-40 RON', note: 'Preț per roată' },
+        { name: 'Geometrie 3D', price: '150-250 RON', note: 'Reglare completă geometrie roți' },
       ],
     },
   ];
@@ -146,21 +130,21 @@ export default function Preturi() {
   return (
     <>
       <Head>
-        <title>Prețuri — ConiCar Service Auto | Tarife Service Auto Dudu</title>
+        <title>Prețuri — ConiCar Service Auto & Vulcanizare | Tarife Service Auto Dudu</title>
         <meta
           name="description"
-          content="Prețuri transparente pentru servicii auto: schimb ulei, vulcanizare, mecanică, diagnoză. ConiCar Service Auto, Dudu. Contactează-ne pentru ofertă personalizată."
+          content="Prețuri transparente pentru servicii auto: schimb ulei, vulcanizare, mecanică, diagnoză. ConiCar Service Auto & Vulcanizare, Dudu. Contactează-ne pentru ofertă personalizată."
         />
         <meta name="keywords" content="prețuri service auto Dudu, tarife vulcanizare, cost schimb ulei, preț reparații auto" />
         <link rel="canonical" href="https://conicar.ro/preturi" />
-        <meta property="og:title" content="Prețuri — ConiCar Service Auto" />
+        <meta property="og:title" content="Prețuri — ConiCar Service Auto & Vulcanizare" />
         <meta property="og:description" content="Prețuri transparente pentru servicii auto" />
         <meta property="og:url" content="https://conicar.ro/preturi" />
       </Head>
 
       <Header />
       <main className="pt-8">
-        <section className="section-padding pt-32 md:pt-24 bg-gradient-to-br from-primary to-primary-dark text-white">
+        <section className="section-padding pt-32 md:pt-40 bg-gradient-to-br from-primary to-primary-dark text-white">
           <div className="container-custom text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Prețuri</h1>
             <p className="text-xl max-w-2xl mx-auto opacity-90">

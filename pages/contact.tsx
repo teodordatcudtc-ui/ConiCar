@@ -8,7 +8,7 @@ export default function Contact() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'ConiCar Service Auto',
+    name: 'ConiCar Service Auto & Vulcanizare',
     image: 'https://conicar.ro/images/logo.jpg',
     '@id': 'https://conicar.ro',
     url: 'https://conicar.ro',
@@ -45,14 +45,14 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact — ConiCar Service Auto | Programează o Vizită</title>
+        <title>Contact — ConiCar Service Auto & Vulcanizare | Programează o Vizită</title>
         <meta
           name="description"
-          content="Contactează ConiCar Service Auto din Dudu. Telefon: 0722178964. Programează o vizită sau solicită o ofertă."
+          content="Contactează ConiCar Service Auto & Vulcanizare din Dudu. Telefon: 0722178964. Programează o vizită sau solicită o ofertă."
         />
-        <meta name="keywords" content="contact ConiCar, service auto Dudu, programare service auto, telefon service auto" />
+        <meta name="keywords" content="contact ConiCar, service auto Dudu, vulcanizare Dudu, programare service auto, telefon service auto" />
         <link rel="canonical" href="https://conicar.ro/contact" />
-        <meta property="og:title" content="Contact — ConiCar Service Auto" />
+        <meta property="og:title" content="Contact — ConiCar Service Auto & Vulcanizare" />
         <meta property="og:description" content="Contactează-ne pentru programare sau ofertă" />
         <meta property="og:url" content="https://conicar.ro/contact" />
         <script
@@ -63,7 +63,7 @@ export default function Contact() {
 
       <Header />
       <main className="pt-8">
-        <section className="section-padding pt-32 md:pt-24 bg-gradient-to-br from-primary to-primary-dark text-white">
+        <section className="section-padding pt-32 md:pt-40 bg-gradient-to-br from-primary to-primary-dark text-white">
           <div className="container-custom text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact</h1>
             <p className="text-xl max-w-2xl mx-auto opacity-90">

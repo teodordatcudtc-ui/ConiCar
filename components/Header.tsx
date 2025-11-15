@@ -11,13 +11,31 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
+  const [topBarVisible, setTopBarVisible] = useState(true);
+
+  const [lastScrollY, setLastScrollY] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 50);
+      
+      // Verifică dacă TopBar-ul este vizibil (aceeași logică ca în TopBar)
+      if (currentScrollY < 10) {
+        setTopBarVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setTopBarVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        setTopBarVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
+    
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
+    
     handleResize(); // Check on mount
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize, { passive: true });
@@ -25,7 +43,10 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [lastScrollY]);
+
+  // Calculăm înălțimea TopBar-ului (mai precis: py-1.5 pe toate = ~28px desktop, ~60px mobile cu conținut)
+  const topBarHeight = isMobile ? 60 : 28;
 
   const navLinks = [
     { href: '/', label: 'Acasă' },
@@ -41,10 +62,14 @@ const Header = () => {
       <header
         className={`fixed left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-lg top-0'
+            ? 'bg-white/95 backdrop-blur-md shadow-lg'
             : 'bg-white/90 backdrop-blur-sm'
         }`}
-        style={{ top: isScrolled ? '0' : isMobile ? 'calc(60px + env(safe-area-inset-top))' : '32px' }}
+        style={{ 
+          top: topBarVisible 
+            ? (isMobile ? `calc(${topBarHeight}px + env(safe-area-inset-top))` : `${topBarHeight}px`)
+            : (isMobile ? 'env(safe-area-inset-top)' : '0')
+        }}
       >
       <nav className="container-custom section-padding py-4">
         <div className="flex items-center justify-between">

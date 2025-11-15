@@ -138,43 +138,20 @@ export default function Servicii() {
       ],
     },
     {
-      id: 'revizii',
+      id: 'vulcanizare',
       icon: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="9 11 12 14 22 4" />
-          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="6" />
         </svg>
       ),
-      title: 'Revizii',
-      description: 'Revizii complete conform recomandărilor producătorului. Verificare sistematică a tuturor componentelor pentru menținerea vehiculului în stare optimă. Documentație completă și consiliere pentru întreținere preventivă.',
+      title: 'Vulcanizare',
+      description: 'Servicii complete de vulcanizare: îndreptare roluri jante, echilibrare, dejantat, geometrie 3D. Oferim soluții profesionale pentru toate nevoile tale legate de anvelope și jante. Folosim echipamente moderne pentru precizie maximă.',
       benefits: [
-        'Verificare completă',
-        'Schimb piese uzate',
-        'Documentație completă',
-        'Consiliere întreținere',
-        'Planificare următoare revizii',
-      ],
-    },
-    {
-      id: 'polish-faruri',
-      icon: (
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-        </svg>
-      ),
-      title: 'Polish Faruri',
-      description: 'Restaurare și polish faruri pentru iluminare optimă. Eliminăm zgârieturile și opacitatea, refăcând transparența originală. Aplicăm protecție UV pentru menținerea rezultatului pe termen lung.',
-      benefits: [
-        'Eliminare zgârieturi',
-        'Restaurare transparență',
-        'Protecție UV',
-        'Iluminare optimă',
+        'Îndreptare roluri jante',
+        'Echilibrare',
+        'Dejantat',
+        'Geometrie 3D',
         'Garanție lucrare',
       ],
     },
@@ -183,21 +160,21 @@ export default function Servicii() {
   return (
     <>
       <Head>
-        <title>Servicii — ConiCar Service Auto | Diagnoză, Reparații, Revizii</title>
+        <title>Servicii — ConiCar Service Auto & Vulcanizare | Diagnoză, Reparații</title>
         <meta
           name="description"
-          content="Servicii complete auto: diagnoză, schimbare kit ambreiaj, înlocuire distribuție, tren de rulare, sistem de frânare, reparații motoare, schimb ulei/filtre, revizii, polish faruri. ConiCar Service Auto, Dudu."
+          content="Servicii complete auto: diagnoză, schimbare kit ambreiaj, înlocuire distribuție, tren de rulare, sistem de frânare, reparații motoare, schimb ulei/filtre, vulcanizare. ConiCar Service Auto & Vulcanizare, Dudu."
         />
-        <meta name="keywords" content="servicii auto Dudu, diagnoză auto, kit ambreiaj, distribuție, tren rulare, sistem frânare, reparații motoare, schimb ulei, revizii auto, polish faruri" />
+        <meta name="keywords" content="servicii auto Dudu, vulcanizare Dudu, diagnoză auto, kit ambreiaj, distribuție, tren rulare, sistem frânare, reparații motoare, schimb ulei, îndreptare jante, echilibrare, geometrie 3D" />
         <link rel="canonical" href="https://conicar.ro/servicii" />
-        <meta property="og:title" content="Servicii — ConiCar Service Auto" />
-        <meta property="og:description" content="Servicii complete auto: mecanică, vulcanizare, diagnoză" />
+        <meta property="og:title" content="Servicii — ConiCar Service Auto & Vulcanizare" />
+        <meta property="og:description" content="Servicii complete auto: mecanică, vulcanizare (îndreptare jante, echilibrare, dejantat, geometrie 3D), diagnoză" />
         <meta property="og:url" content="https://conicar.ro/servicii" />
       </Head>
 
       <Header />
       <main className="pt-8">
-        <section className="section-padding pt-32 md:pt-24 bg-gradient-to-br from-primary to-primary-dark text-white">
+        <section className="section-padding pt-32 md:pt-40 bg-gradient-to-br from-primary to-primary-dark text-white">
           <div className="container-custom text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Serviciile noastre</h1>
             <p className="text-xl max-w-2xl mx-auto opacity-90">
@@ -209,12 +186,64 @@ export default function Servicii() {
         <section className="section-padding bg-white">
           <div className="container-custom">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
+              {services.filter(service => service.id !== 'vulcanizare').map((service, index) => (
                 <ServiceCard key={service.id} {...service} delay={index * 100} />
               ))}
             </div>
           </div>
         </section>
+
+        {/* Secțiune specială pentru Vulcanizare */}
+        {(() => {
+          const vulcanizareService = services.find(s => s.id === 'vulcanizare');
+          if (!vulcanizareService) return null;
+          
+          const vulcanizareServices = [
+            { name: 'Geometrie 3D', description: 'Reglare precisă geometrie roți cu echipamente 3D moderne pentru uzură uniformă și siguranță maximă' },
+            { name: 'Echilibrare', description: 'Echilibrare profesională a roților pentru o conducere lină și fără vibrații' },
+            { name: 'Îndreptare roluri jante', description: 'Reparație și îndreptare jante deteriorate pentru aspect și funcționalitate optimă' },
+            { name: 'Dejantat', description: 'Montaj și demontaj profesional de anvelope cu echipamente moderne' },
+          ];
+
+          return (
+            <section className="section-padding bg-white">
+              <div className="container-custom">
+                <div className="text-center mb-12">
+                  <div className="flex items-center justify-center w-20 h-20 mx-auto mb-4 bg-primary/10 rounded-xl text-primary">
+                    {vulcanizareService.icon}
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">{vulcanizareService.title}</h2>
+                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">{vulcanizareService.description}</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {vulcanizareServices.map((service, index) => {
+                    const serviceId = service.name === 'Geometrie 3D' ? 'geometrie-3d' :
+                                     service.name === 'Echilibrare' ? 'echilibrare' :
+                                     service.name === 'Îndreptare roluri jante' ? 'indreptare-roluri-jante' :
+                                     service.name === 'Dejantat' ? 'dejantat' :
+                                     'vulcanizare';
+                    return (
+                      <Link
+                        key={index}
+                        href={`/servicii/${serviceId}`}
+                        className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-md border-2 border-gray-200 hover:shadow-xl hover:border-primary hover:-translate-y-1 transition-all duration-300 block"
+                      >
+                        <h3 className="text-lg font-bold text-primary mb-3">{service.name}</h3>
+                        <p className="text-sm text-gray-600 leading-relaxed mb-4">{service.description}</p>
+                        <span className="text-primary font-semibold text-sm inline-flex items-center">
+                          Află mai mult
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-2">
+                            <polyline points="9 18 15 12 9 6" />
+                          </svg>
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          );
+        })()}
 
         <section className="section-padding bg-gray-50">
           <div className="container-custom text-center">

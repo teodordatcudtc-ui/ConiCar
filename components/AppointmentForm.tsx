@@ -71,8 +71,7 @@ const AppointmentForm = () => {
     'Verificare și reparații sistem de frânare',
     'Înlocuiri și reparații motoare',
     'Schimb ulei / filtre',
-    'Revizii',
-    'Polish faruri',
+    'Vulcanizare',
     'Altele',
   ];
 
