@@ -157,24 +157,40 @@ export default function Home() {
 
   const galleryImages = [
     {
-      src: '/images/galerie/atelier-zona-lucru.jpg',
+      src: '/images/galerie/galerie-1.jpg',
       alt: 'Atelier ConiCar Service Auto - zona de lucru',
-      thumbnail: '/images/galerie/atelier-zona-lucru.jpg',
+      thumbnail: '/images/galerie/galerie-1.jpg',
     },
     {
-      src: '/images/galerie/diagnostic-echipamente.jpg',
+      src: '/images/galerie/galerie-2.jpg',
       alt: 'Diagnostic auto cu echipamente moderne',
-      thumbnail: '/images/galerie/diagnostic-echipamente.jpg',
+      thumbnail: '/images/galerie/galerie-2.jpg',
     },
     {
-      src: '/images/galerie/reparatie-motor.jpg',
+      src: '/images/galerie/galerie-3.jpg',
       alt: 'Reparație motor la ConiCar',
-      thumbnail: '/images/galerie/reparatie-motor.jpg',
+      thumbnail: '/images/galerie/galerie-3.jpg',
     },
     {
-      src: '/images/galerie/vulcanizare-montaj.jpg',
+      src: '/images/galerie/galerie-4.jpg',
       alt: 'Serviciu vulcanizare și montaj anvelope',
-      thumbnail: '/images/galerie/vulcanizare-montaj.jpg',
+      thumbnail: '/images/galerie/galerie-4.jpg',
+    },
+    {
+      alt: 'Imagine galerie ConiCar în curând',
+      available: false,
+    },
+    {
+      alt: 'Imagine galerie ConiCar în curând',
+      available: false,
+    },
+    {
+      alt: 'Imagine galerie ConiCar în curând',
+      available: false,
+    },
+    {
+      alt: 'Imagine galerie ConiCar în curând',
+      available: false,
     },
   ];
 
@@ -337,6 +353,19 @@ export default function Home() {
         </section>
 
 
+        {/* Gallery */}
+        <section className="section-padding bg-white">
+          <div className="container-custom">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">
+              Galeria Noastră
+            </h2>
+            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+              Vizualizează atelierul nostru și echipamentele moderne
+            </p>
+            <Gallery images={galleryImages} />
+          </div>
+        </section>
+
         {/* Work Process */}
         <WorkProcess />
 
@@ -390,19 +419,6 @@ export default function Home() {
                 />
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Gallery */}
-        <section className="section-padding bg-white">
-          <div className="container-custom">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">
-              Galeria Noastră
-            </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-              Vizualizează atelierul nostru și echipamentele moderne
-            </p>
-            <Gallery images={galleryImages} />
           </div>
         </section>
 

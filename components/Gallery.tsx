@@ -36,10 +36,56 @@ const Gallery = ({ images }: GalleryProps) => {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {/* Mobile carousel */}
+      <div className="md:hidden">
+        <div className="flex overflow-x-auto space-x-4 snap-x snap-mandatory pb-2">
+          {images.map((image, index) => (
+            <div
+              key={`mobile-${index}`}
+              className="relative flex-none w-3/4 aspect-square overflow-hidden rounded-lg cursor-pointer group snap-center"
+              onClick={() => openLightbox(index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  openLightbox(index);
+                }
+              }}
+              aria-label={`Deschide imaginea ${image.alt}`}
+            >
+              <img
+                src={image.thumbnail || image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+                width={400}
+                height={400}
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="2"
+                  className="opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35" />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop grid */}
+      <div className="hidden md:grid grid-cols-3 lg:grid-cols-4 gap-4">
         {images.map((image, index) => (
           <div
-            key={index}
+            key={`desktop-${index}`}
             className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
             onClick={() => openLightbox(index)}
             role="button"
@@ -130,7 +176,6 @@ const Gallery = ({ images }: GalleryProps) => {
               alt={images[selectedImage].alt}
               className="max-w-full max-h-[90vh] object-contain"
             />
-            <p className="text-white text-center mt-4">{images[selectedImage].alt}</p>
           </div>
         </div>
       )}
