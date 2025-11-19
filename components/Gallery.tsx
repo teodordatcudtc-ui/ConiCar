@@ -3,9 +3,10 @@
 import { useState } from 'react';
 
 interface GalleryImage {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   thumbnail?: string;
+  available?: boolean;
 }
 
 interface GalleryProps {
@@ -39,45 +40,62 @@ const Gallery = ({ images }: GalleryProps) => {
       {/* Mobile carousel */}
       <div className="md:hidden">
         <div className="flex overflow-x-auto space-x-4 snap-x snap-mandatory pb-2">
-          {images.map((image, index) => (
-            <div
-              key={`mobile-${index}`}
-              className="relative flex-none w-3/4 aspect-square overflow-hidden rounded-lg cursor-pointer group snap-center"
-              onClick={() => openLightbox(index)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  openLightbox(index);
+          {images.map((image, index) => {
+            const isAvailable = image.available !== false && Boolean(image.src);
+
+            return (
+              <div
+                key={`mobile-${index}`}
+                className={`relative flex-none w-3/4 aspect-square overflow-hidden rounded-lg snap-center ${
+                  isAvailable ? 'cursor-pointer group' : 'border border-dashed border-gray-300 bg-gray-50 flex items-center justify-center text-gray-400'
+                }`}
+                onClick={isAvailable ? () => openLightbox(index) : undefined}
+                role={isAvailable ? 'button' : undefined}
+                tabIndex={isAvailable ? 0 : -1}
+                onKeyDown={
+                  isAvailable
+                    ? (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          openLightbox(index);
+                        }
+                      }
+                    : undefined
                 }
-              }}
-              aria-label={`Deschide imaginea ${image.alt}`}
-            >
-              <img
-                src={image.thumbnail || image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-                width={400}
-                height={400}
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="2"
-                  className="opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <circle cx="11" cy="11" r="8" />
-                  <path d="M21 21l-4.35-4.35" />
-                </svg>
+                aria-label={isAvailable && image.alt ? `Deschide imaginea ${image.alt}` : undefined}
+              >
+                {isAvailable ? (
+                  <>
+                    <img
+                      src={image.thumbnail || image.src}
+                      alt={image.alt || 'Imagine galerie ConiCar'}
+                      className="w-full h-full object-cover transition-transform durataon-300 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                      width={400}
+                      height={400}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                      <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="2"
+                        className="opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="M21 21l-4.35-4.35" />
+                      </svg>
+                    </div>
+                  </>
+                ) : (
+                  <span className="text-sm font-semibold uppercase tracking-wide">În curând</span>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
